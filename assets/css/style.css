@@ -1,0 +1,777 @@
+/**z
+ *
+ * CSS UNTUK PAGE HOME
+ * UBAH BAGIAN INI JIKA INGIN MENGGANTI
+ * STYLE PADA PAGE HOME
+ */
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14pt;
+	color: #333333;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+/******************** Navbar CSS ********************/
+
+#navigation .navbar{
+	background-color: transparent;
+	color: #fff;
+	padding-top: 40px;
+	padding-bottom: 30px;
+	font-size: 12pt;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#navigation .navbar .navbar-header .logo-container{
+	height: auto;
+	display: inline-block;
+}
+
+#navigation .navbar .navbar-header .logo-container > img {
+	width: 170px; 
+	margin-top: -12px;
+}
+
+#navigation .navbar .navbar-header .side-nav-btn {
+	display: none;
+	cursor: pointer;
+	float: right;
+	padding: 10px;
+}
+
+#navigation .navbar .navbar-header .side-nav-btn .bar {
+	height: 3px;
+    width: 20px;
+    background-color: #fff;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    transition: 0.4s ease;
+}
+
+#navigation .navbar .navbar-nav {
+	border: none;
+	float: right;
+}
+
+#navigation .navbar-nav > li {
+	border: none;
+	padding: 10px 20px;
+}
+
+#navigation .navbar-nav > li > a {
+	border: none;
+	padding: 0px;
+	color: #fff;
+}
+
+#navigation .navbar-nav > li > a:hover {
+	background-color: transparent;
+}
+
+#navigation .navbar-nav > li > a:focus {
+	background-color: transparent;
+}
+
+#navigation .main-side-nav-overlay {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 1030;
+	background: none repeat scroll 0 0 #222222;
+	opacity: 0.6;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+#navigation .main-side-nav {
+	position: fixed;
+	z-index: 1031;
+	height: 1000%;
+	width: 250px;
+	background-color: #fff;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	float: right;
+	margin-left: -255px;
+	transition: .3s ease-in-out
+}
+
+#navigation .main-side-nav .nav-pict > img {
+	width: 100%;
+	height: 150px;
+	background-size: cover;
+}
+
+#navigation .main-side-nav .side-navbar{
+	padding: 35px 25px;
+	width: 100%;
+}
+
+#navigation .main-side-nav .side-navbar> a {
+	font-size: 12pt;
+	color: #333;
+	display: block;
+	padding: 15px 10px;
+	text-decoration: none;
+}
+
+#navigation .main-side-nav .side-navbar> a:hover {
+	background-color: #eaeaea;
+	transition: .3s ease-in-out;
+}
+
+#navigation .navbar-offset{
+	background-color: #fff;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	transition: padding-top .5s ease-in-out, background-color .5s ease-in-out, box-shadow .7s ease-in-out;
+}
+
+#navigation .navbar-offset .navbar-header .logo-container > p {
+	color: #333;
+	transition: color .5s ease-in-out;
+}
+
+#navigation .navbar-offset .nav > li > a {
+	color: #333333;
+	transition: color .7s ease-in-out;
+}
+
+#navigation .navbar-offset .nav a:hover {
+	border-bottom: 2px solid rgba(3,114,134,1);
+	background-color: transparent;
+}
+
+@media screen and (max-width: 1990px)  {
+
+	#navigation .navbar .navbar-header .logo-container > p {
+		display: inline-block;
+		margin: 0px;
+	}
+
+	#navigation .navbar .navbar-header .logo-container > button{
+		display: block;
+		float: right;
+		margin: 0px;
+	}
+}
+
+@media screen and (max-width: 767px)  {
+
+	#navigation .navbar {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	#navigation .navbar .navbar-header {
+		margin-right: 0px;
+    	margin-left: 0px;
+	}
+
+	#navigation .navbar .navbar-header .logo-container > img{
+		width: 120px;
+	}
+
+	#navigation .navbar .navbar-header .side-nav-btn {
+		display: inline-block;
+	}
+}
+
+/******************** End of Navbar CSS ********************/
+
+
+
+/******************** Hero View CSS ********************/
+
+#main-hero-view {
+	height: 672px;
+	position: relative;
+}
+
+#main-hero-view .hero-content {
+	position: absolute;
+	top: 50%;
+	margin-top: -10%;
+	z-index: 30;
+	left: 0;
+	right: 0;
+
+}
+
+#main-hero-view .hero-content .hero-text {
+	padding-left: 10rem;
+	color: #FFF;
+	float: right;
+}
+
+#main-hero-view .hero-content .hero-text > p {
+	font-size: 12pt;
+}
+
+#main-hero-view .hero-content .hero-text > h2 {
+	font-size: 40pt; 
+	font-weight: 700;
+}
+
+@media screen and (max-width: 992px)  {
+
+	#main-hero-view .hero-content {
+		position: absolute;
+		top: 50%;
+		margin-top: -25%;
+		z-index: 30;
+		left: 0;
+		right: 0;
+
+	}
+
+	#main-hero-view .hero-content .hero-text {
+		padding-left: 10rem;
+		color: #FFF;
+		float: right;
+	}
+
+	#main-hero-view .hero-content .hero-text > p {
+		font-size: 12pt;
+	}
+
+	#main-hero-view .hero-content .hero-text > h2 {
+		font-size: 36pt;
+	}
+
+	#main-hero-view .hero-content .hero-pict img{
+		width: 650px;
+		float: left;
+		padding: 20px;
+		padding-left: 10%;
+	}
+}
+
+@media screen and (max-width: 768px)  {
+
+	#main-hero-view .hero-content .hero-pict img{
+		width: 100%;
+		padding: 0;
+		padding-left: 0;
+		margin-top: 25px;
+	}
+
+	#main-hero-view .hero-content {
+		margin-top: -170px;
+
+	}
+
+	#main-hero-view .hero-content .hero-text {
+		padding-left: 4rem;
+	}
+
+	#main-hero-view .hero-content .hero-text > h2 {
+		font-size: 32pt; 
+	}
+}
+
+/******************** End of Hero View CSS ********************/
+
+
+
+/******************** Slider CSS ********************/
+
+/*#main-slider {
+	height: 672px;
+	padding: 5rem 0em;
+}
+
+#main-slider .slider-carousel .item h1 {
+	font-weight: 700;
+	font-size: 60pt;
+	margin: 0;
+	padding: 0;
+}
+
+#main-slider .slider-carousel .item {
+	height: 672px;
+}
+
+#main-slider .slider-carousel .owl-dots {
+	position: absolute;
+	top: 90%;
+	left: 0;
+	right: 0;
+}
+
+#main-slider .slider-carousel .item .slide-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: none repeat scroll 0 0 #222222;
+	opacity: 0.6;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 9;
+}
+
+#main-slider .slider-carousel .item .slide-caption {
+	position: absolute;
+	text-align: center;
+	color: #e5e5e5;
+	top: 50%;
+	margin-top: -7%;
+	z-index: 30;
+	left: 0;
+	right: 0;
+}*/
+
+/******************** End of Slider CSS ********************/
+
+
+
+/******************** Purpose CSS ********************/
+
+#main-purpose, #main-content {
+	background-color: #fafafa;
+}
+
+#main-purpose .content {
+	display: block;
+	width: 807px;
+	padding: 100px 20px 50px 20px;
+}
+
+#main-purpose .content p {
+	color: #006064;
+}
+
+/******************** End of Purpose CSS ********************/
+
+
+
+/******************** Category CSS ********************/
+
+#main-category {
+	background-color: #fafafa;
+	padding: 5rem 4rem;
+}
+
+#main-category .category-card {
+	max-width: 380px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	background-color: #fff;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#main-category .category-card .category-img {
+	height: 300px;
+	margin: auto;
+	padding: 2rem;
+}
+
+#main-category .category-card .category-img img{
+	display: block;
+	margin: auto;
+}
+
+#main-category .category-card .category-img h2{
+	text-align: center;
+	color: #fff;
+}
+
+#main-category .category-card .category-caption {
+	font-size: 14pt;
+	font-weight: bold;
+	padding: 3rem;
+	text-align: justify;
+}
+
+#main-category .category-card .category-btn {
+	padding: 4rem 2rem 2rem 2rem;
+
+}
+
+#main-category .category-card .category-btn a {
+	text-align: center;
+	text-decoration: none;
+	color: rgba(3,114,134,1);
+	cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+
+	#main-category h1 {
+		font-size: 28pt;
+	}
+
+	#main-category .category-card .category-img h2{
+		font-size: 16pt;
+	}
+
+	#main-category .category-card .category-img p {
+		font-size: 12pt;
+	}
+
+	#main-category .category-card .category-caption {
+		font-size: 12pt;
+	}
+}
+
+/******************** End of Category CSS ********************/
+
+
+
+/******************** Score Info CSS ********************/
+
+#main-score-info {
+	color: #fff;
+	padding-top: 7rem;
+	padding-bottom: 7rem;
+}
+
+
+#main-score-info .score-info .score-info-btn {
+	font-size: 14pt;
+	padding: 10px 15px;
+	margin-bottom: 12px;
+	font-weight: bold;	
+	background-color: #009688;
+	color: #fff;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	margin-right: 20px;
+	text-decoration: none;
+}
+
+#main-score-info .score-info > p{
+	display: inline-block;
+	font-size: 16pt;
+	margin-top: 12px;
+	color: #fff;	
+}
+
+@media screen and (max-width: 768px)  {
+
+	#main-score-info .score-info {
+		padding: 35px;
+	}
+}
+
+/******************** End of Score Info CSS ********************/
+
+
+
+/******************** Blog CSS ********************/
+
+#main-blog {
+	background-color: #fafafa;
+	padding: 5rem 2rem;
+	position: relative;
+
+}
+
+#main-blog .entry-carousel .item {
+	padding: 1rem;
+}
+
+#main-blog .entry-carousel .entry-container {
+	background-color: #fff;
+	max-height: 500px;
+	margin: auto;
+	margin-bottom: 30px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#main-blog .entry-carousel .entry-container .blog-pict {
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+}
+
+#main-blog .entry-carousel .entry-title, #main-blog .entry-carousel .entry-content {
+	padding: 2rem;
+}
+
+#main-blog .entry-carousel .entry-title h3 {
+    font-weight: 500;
+    min-height: 28px;
+    color: #009688;
+	margin: 0;
+	padding: 0;
+}
+
+#main-blog .entry-carousel .owl-nav{
+	display: block;
+}
+
+#main-blog .entry-carousel .owl-prev, #main-blog .entry-carousel .owl-next {
+	position: absolute;
+	z-index: 100;
+	padding: 15px;
+	border-radius: 50%;
+	background-color: #fff;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	top: 50%;
+	font-size: 20px;
+	text-align: center;
+	margin-top: -50px;
+	cursor: pointer;
+	transition: .3s ease-in-out;
+}
+
+#main-blog .entry-carousel .owl-next {
+	right: 0;
+	margin-right: -20px;
+}
+
+#main-blog .entry-carousel .owl-prev {
+	left: 0;
+	margin-left: -20px;
+}
+
+#main-blog .entry-carousel .owl-prev > i, .entry-carousel .owl-next > i {
+	color: #5eb26a;
+	text-decoration: none;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#main-blog .entry-right-btn:hover, #main-blog .entry-left-btn:hover {
+	box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 992px)  {
+	#main-blog .entry-carousel .owl-prev, #main-blog .entry-carousel .owl-next {
+		margin-top: -70px;
+	}
+}
+
+@media screen and (max-width: 768px)  {
+
+	#main-blog .entry-carousel .owl-prev, #main-blog .entry-carousel .owl-next {
+		display: none;
+	}
+}
+
+/******************** End of Blog CSS ********************/
+
+
+
+/******************** Hotel Info CSS ********************/
+
+#main-hotel-info {
+	background-color: #fafafa;
+	padding: 5rem 4em;
+}
+
+#main-hotel-info .hotel-info-title {
+	font-size: 18pt;
+	border-bottom: 3px #fff solid;
+	color: #fff;
+	margin-bottom: 20px;
+	min-height: 50px; 
+	display: inline-block;
+	font-weight: 500;
+	padding-bottom: 15px;
+}
+
+#main-hotel-info .hotel-info-content {
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	display: block;
+	max-width: 320px;
+	background-color: #fff;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#main-hotel-info .hotel-info-content .hotel-pict {
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+}
+
+#main-hotel-info .hotel-info-content > h4 {
+	margin-bottom: 10px;
+	text-align: center;
+	color: #333;
+	min-height: 40px;
+	padding: 25px;
+}
+
+#main-hotel-info .hotel-info-content > p {
+	color: #333;
+	font-size: 11pt;
+	padding: 25px;
+}
+
+@media screen and (max-width: 992px)  {
+
+	#main-hotel-info .hotel-info-content {
+		max-width: 450px;
+		margin: auto;
+		margin-bottom: 20px;
+	}
+	
+}
+
+@media screen and (max-width: 768px)  {
+
+	#main-hotel-info {
+		padding: 10px;
+	}
+
+	#main-hotel-info .hotel-info-content {
+		margin: auto;
+		margin-bottom: 20px;
+	}
+}
+
+/******************** End of Hotel Info CSS ********************/
+
+
+
+
+/******************** Venue Info CSS ********************/
+
+#main-venue-info {
+	background-color: #fafafa;
+	padding: 5rem 4em;
+}
+
+#main-venue-info .venue-info-title {
+	font-size: 18pt;
+	border-bottom: 3px #fff solid;
+	color: #fff;
+	margin-bottom: 20px;
+	min-height: 50px; 
+	display: inline-block;
+	font-weight: 500;
+	padding-bottom: 15px;
+}
+
+#main-venue-info .venue-info-content {
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	display: block;
+	max-width: 350px;
+	background-color: #fff;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#main-venue-info .venue-info-content .venue-pict {
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+}
+
+#main-venue-info .venue-info-content > h4 {
+	margin-bottom: 10px;
+	text-align: center;
+	color: #333;
+	min-height: 40px;
+	padding: 20px;
+}
+
+#main-venue-info .venue-info-content > p {
+	color: #333;
+	font-size: 11pt;
+	padding: 25px;
+}
+
+#main-venue-info .venue-see-more-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}
+
+#main-venue-info .venue-see-more-btn > a {
+	background: linear-gradient(135deg, #b2ff59 0%,#009688 100%);
+	color: #fafafa;
+	font-weight: 500;
+	padding: 8px 10px;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 992px)  {
+
+	#main-venue-info .venue-info-content {
+		max-width: 450px;
+		margin: auto;
+		margin-bottom: 20px;
+	}
+	
+}
+
+@media screen and (max-width: 768px)  {
+
+	#main-venue-info {
+		padding: 10px;
+	}
+
+	#main-venue-info .hotel-info-content {
+		margin: auto;
+		margin-bottom: 20px;
+	}
+}
+
+/******************** End of Hotel Info CSS ********************/
+
+
+
+
+/******************** Campus Info CSS ********************/
+
+#main-campus-info {
+	background-color: #fafafa;
+	padding: 5rem 4rem;
+}
+
+#main-campus-info .campus-container {
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	display: block;
+	background-color: #fff;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#main-campus-info .campus-container .campus-span-info {
+	padding: 20px;
+	margin-top: 20px;
+}
+
+#main-campus-info .campus-container > h4 {
+	padding: 0 25px;
+	margin-top: 15px;
+	margin-bottom: 15px
+}
+
+#main-campus-info .campus-container > p {
+	padding: 0 25px;
+	font-size: 12pt;
+}
+
+#main-footer {
+	padding: 5rem 0rem;
+	background-color: #fafafa;
+	color: #fff;
+}
+
+#main-footer .sosmed {
+	text-align: center;
+}
+
+#main-footer .sosmed .fa-stack > a {
+	text-decoration: none;
+	font-size: 16pt;
+    color: rgba(3,114,134,1);
+}
