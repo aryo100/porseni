@@ -12,7 +12,12 @@ body {
 	overflow-x: hidden;
 }
 
+#navigation .navbar .navbar-header .logo-container > img {
+	width: 150px;
+}
+
 #main-header {
+	background: linear-gradient(135deg, #b2ff59 0%,#009688 100%);
 	padding-bottom: 60px;
     padding-top: 200px;
     margin-top: -30px;
@@ -30,14 +35,19 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
-#main-header a.sport-regis-btn, #main-header a.guidebook-btn{
+#main-header .regis-btn, #main-header .guidebook-btn {
+	display: inline-block;
 	background-color: #009688;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	padding: 5px 25px;
+	margin-bottom: 12px;
+}
+
+#main-header .regis-btn > a, #main-header .guidebook-btn > a {
 	border: none;
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #fafafa;
-	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
-	padding: 5px 25px;
 	margin-right: 10px;
 }
 
@@ -56,7 +66,23 @@ body {
 	color: #006064;
 }
 
+#main-content .content-container .competition-container {
+	padding: 1rem;
+	max-width: 150px;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px; 
+}
 
+#main-content .content-container  .competition-container > img {
+	width: 150px;
+}
+
+#main-content .content-container .competition-container > p {
+	color: #009688;
+	font-size: 12pt;
+	text-align: center;
+}
 
 #main-content .content-container ul li{
 	padding-bottom: 10px;
@@ -72,6 +98,10 @@ body {
 }
 
 @media screen and (max-width: 768px)  {
+
+	#navigation .navbar .navbar-header .logo-container > img {
+		width: 120px;
+	}
 
 	#main-header {
 		padding-top: 150px;

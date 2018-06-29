@@ -14,6 +14,12 @@ body {
 	width: 100%;
 }
 
+.center {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
 /******************** Navbar CSS ********************/
 
 #navigation .navbar{
@@ -30,11 +36,11 @@ body {
 #navigation .navbar .navbar-header .logo-container{
 	height: auto;
 	display: inline-block;
+	margin-top: -10px;
 }
 
 #navigation .navbar .navbar-header .logo-container > img {
-	width: 170px; 
-	margin-top: -12px;
+	width: 170px;
 }
 
 #navigation .navbar .navbar-header .side-nav-btn {
@@ -60,21 +66,31 @@ body {
 
 #navigation .navbar-nav > li {
 	border: none;
-	padding: 10px 20px;
+	margin-right: 8px;
 }
 
 #navigation .navbar-nav > li > a {
 	border: none;
 	padding: 0px;
 	color: #fff;
+	padding: 12px 15px;
 }
 
-#navigation .navbar-nav > li > a:hover {
+#navigation .navbar-nav > li > a.login-button {
+	background-color: transparent;
+	color: #fff;
+	border: 1px solid #fff;
+}
+
+#navigation .navbar-nav > li > a:hover,
+#navigation .navbar-nav > li > a:focus  {
 	background-color: transparent;
 }
 
-#navigation .navbar-nav > li > a:focus {
-	background-color: transparent;
+#navigation .navbar-nav > li > a.login-button:hover,
+#navigation .navbar-nav > li > a.login-button:focus  {
+	background-color: #fff;
+	color: #009688;
 }
 
 #navigation .main-side-nav-overlay {
@@ -91,6 +107,7 @@ body {
 }
 
 #navigation .main-side-nav {
+	overflow-y: visible;
 	position: fixed;
 	z-index: 1031;
 	height: 1000%;
@@ -102,27 +119,50 @@ body {
 	transition: .3s ease-in-out
 }
 
-#navigation .main-side-nav .nav-pict > img {
-	width: 100%;
-	height: 150px;
+#navigation .main-side-nav .side-nav-header {
+	background: linear-gradient(135deg, #b2ff59 0%,#009688 100%);
 	background-size: cover;
+	padding-top: 48px;
+	padding-bottom: 36px;
 }
 
-#navigation .main-side-nav .side-navbar{
-	padding: 35px 25px;
+#navigation .main-side-nav .side-nav-header > p {
+	color: #fff;
+	padding-left: 20px;
+	font-weight: 300;
+	font-size: 24px;
+}
+
+#navigation .main-side-nav .side-navbar {
+	padding: 24px 0px;
 	width: 100%;
 }
 
-#navigation .main-side-nav .side-navbar> a {
-	font-size: 12pt;
+#navigation .main-side-nav .side-navbar > a {
+	font-size: 16px;
 	color: #333;
 	display: block;
-	padding: 15px 10px;
+	padding: 10px 56px 10px 24px;
+	text-decoration: none;
+	transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+#navigation .main-side-nav hr {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-top: 1px solid #dadada;
+}
+
+#navigation .main-side-nav .side-navbar > p {
+	font-size: 12px;
+	color: #bababa;
+	display: block;
+	padding: 5px 56px 5px 16px;
 	text-decoration: none;
 }
 
 #navigation .main-side-nav .side-navbar> a:hover {
-	background-color: #eaeaea;
+	background-color: #bababa;
 	transition: .3s ease-in-out;
 }
 
@@ -194,6 +234,7 @@ body {
 #main-hero-view {
 	height: 672px;
 	position: relative;
+	background: linear-gradient(135deg, #b2ff59 0%, #009688 100%);
 }
 
 #main-hero-view .hero-content {
@@ -214,6 +255,14 @@ body {
 
 #main-hero-view .hero-content .hero-text > p {
 	font-size: 12pt;
+	margin: 0;
+}
+
+#main-hero-view .hero-content .hero-text > hr {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	width: 20%;
+	display: inline-block;
 }
 
 #main-hero-view .hero-content .hero-text > h2 {
@@ -342,12 +391,28 @@ body {
 
 #main-purpose .content {
 	display: block;
-	width: 807px;
+	width: 1024px;
 	padding: 100px 20px 50px 20px;
 }
 
-#main-purpose .content p {
+#main-purpose .content > h2 {
+	text-align: center;
+	padding: 40px 0px;
+	color: #009688;
+}
+
+#main-purpose .content > p {
+	font-size: 16pt;
+	line-height: 36px;
 	color: #006064;
+	text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+
+	#main-purpose .content > p {
+		font-size: 14pt;
+	}
 }
 
 /******************** End of Purpose CSS ********************/
@@ -361,6 +426,12 @@ body {
 	padding: 5rem 4rem;
 }
 
+#main-category h1 {
+	text-align: center;
+	padding: 25px 0px;
+	color: #009688;
+}
+
 #main-category .category-card {
 	max-width: 380px;
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
@@ -371,30 +442,33 @@ body {
 }
 
 #main-category .category-card .category-img {
+	background: linear-gradient(135deg, #b2ff59 0%,#009688 100%);
 	height: 300px;
 	margin: auto;
 	padding: 2rem;
 }
 
-#main-category .category-card .category-img img{
+#main-category .category-card .category-img img {
 	display: block;
 	margin: auto;
 }
 
-#main-category .category-card .category-img h2{
+#main-category .category-card .category-img h2, #main-category .category-card .category-img p{
 	text-align: center;
 	color: #fff;
 }
 
 #main-category .category-card .category-caption {
-	font-size: 14pt;
-	font-weight: bold;
 	padding: 3rem;
 	text-align: justify;
 }
 
+#main-category .category-card .category-caption {
+	line-height: 38px;
+}
+
 #main-category .category-card .category-btn {
-	padding: 4rem 2rem 2rem 2rem;
+	padding: 4rem 2rem 4rem 2rem;
 
 }
 
@@ -406,6 +480,10 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+
+	#main-category {
+		padding: 0;
+	}
 
 	#main-category h1 {
 		font-size: 28pt;
@@ -421,6 +499,7 @@ body {
 
 	#main-category .category-card .category-caption {
 		font-size: 12pt;
+		line-height: 32px;
 	}
 }
 
@@ -434,6 +513,7 @@ body {
 	color: #fff;
 	padding-top: 7rem;
 	padding-bottom: 7rem;
+	background: linear-gradient(135deg, #b2ff59 0%,#009688 100%);
 }
 
 
@@ -476,16 +556,22 @@ body {
 
 }
 
+#main-blog h1 {
+	text-align: center;
+	padding: 25px 0px;
+	color: #009688;
+
+}
+
 #main-blog .entry-carousel .item {
 	padding: 1rem;
 }
 
 #main-blog .entry-carousel .entry-container {
-	background-color: #fff;
+	background-color: #fafafa;
 	max-height: 500px;
 	margin: auto;
 	margin-bottom: 30px;
-	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #main-blog .entry-carousel .entry-container .blog-pict {
@@ -495,16 +581,26 @@ body {
     height: 200px;
 }
 
-#main-blog .entry-carousel .entry-title, #main-blog .entry-carousel .entry-content {
+/*#main-blog .entry-carousel .entry-title, #main-blog .entry-carousel .entry-content {
 	padding: 2rem;
-}
+}*/
 
-#main-blog .entry-carousel .entry-title h3 {
-    font-weight: 500;
+#main-blog .entry-carousel .entry-title h4 {
+    font-weight: 400;
     min-height: 28px;
     color: #009688;
 	margin: 0;
 	padding: 0;
+	margin-top: 20px;
+	letter-spacing: .32px;
+	line-height: 32px;
+	text-decoration: none; 
+	color: #009688;
+}
+
+#main-blog .entry-carousel .entry-title h4 > a {
+	text-decoration: none; 
+	color: #009688;
 }
 
 #main-blog .entry-carousel .owl-nav{
@@ -625,6 +721,10 @@ body {
 @media screen and (max-width: 768px)  {
 
 	#main-hotel-info {
+		padding: 0;
+	}
+
+	#main-hotel-info {
 		padding: 10px;
 	}
 
@@ -736,6 +836,12 @@ body {
 	padding: 5rem 4rem;
 }
 
+#main-campus-info h1 {
+	text-align: center;
+	padding: 25px 0px;
+	color: #009688;
+}
+
 #main-campus-info .campus-container {
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 	display: block;
@@ -758,20 +864,133 @@ body {
 #main-campus-info .campus-container > p {
 	padding: 0 25px;
 	font-size: 12pt;
+	padding-bottom: 15px;
 }
 
-#main-footer {
-	padding: 5rem 0rem;
-	background-color: #fafafa;
+@media screen and (max-width: 768px)  {
+
+	#main-campus-info {
+		padding: 0;
+		padding-bottom: 4rem;
+	}
+
+}
+
+
+/******************** End of Campus Info CSS ********************/
+
+
+
+
+
+/******************** Social Media CSS ********************/
+
+#main-sosmed {
+	padding: 3rem 0rem;
+	background: linear-gradient(135deg, #b2ff59 0%,#009688 100%);
 	color: #fff;
 }
 
-#main-footer .sosmed {
+#main-sosmed .sosmed {
 	text-align: center;
 }
 
-#main-footer .sosmed .fa-stack > a {
+#main-sosmed p {
+	font-size: 12pt;
+	display: block;
+	text-align: center;
+}
+
+#main-sosmed .sosmed .fa-stack > a {
 	text-decoration: none;
-	font-size: 16pt;
+	font-size: 14pt;
     color: rgba(3,114,134,1);
 }
+
+#main-sosmed .sosmed .fa-stack > a.fa-facebook{
+	background-color: #3F51B5;
+	color: #fff;
+}
+
+#main-sosmed .sosmed .fa-stack > a.fa-twitter{
+	background-color: #039BE5;
+	color: #fff;
+}
+
+#main-sosmed .sosmed .fa-stack > a.fa-instagram{
+	background: linear-gradient(-45deg, #f44336 0%,#f44336 0%,#e91e63 100%);;
+	color: #fff;
+}
+
+
+/******************** End of Social Media CSS ********************/
+
+
+
+
+
+/******************** Company Footer CSS ********************/
+
+#main-copyright .company-list {
+	display: inline-block;
+	padding-top: 10px;
+	padding: 0;
+}
+
+#main-copyright .company-list ul {
+	list-style: none;
+}
+
+#main-copyright .company-list ul > li {
+	display: inline-block;
+	float: left;
+	margin-left: 12px;
+}
+
+#main-copyright .company-list ul > li > img {
+	width: 30px;
+}
+
+#main-copyright p {
+	display: inline-block;
+	float: right;
+	margin-right: 42px;
+	font-size: 12pt;
+}
+
+#main-copyright {
+	padding: 3rem 0rem;
+	background-color: #fafafa;
+	color: #333;
+}
+
+@media screen and (max-width: 768px) {
+	#main-copyright .company-list {
+		display: block;
+	}
+
+	#main-copyright .company-list ul {
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		padding: 0;
+	}
+
+	#main-copyright .company-list ul > li {
+		display: inline-block;
+	}
+
+	#main-copyright p {
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		margin-top: 20px;
+		font-size: 12pt;
+		float: none;
+		margin-right: 0px;
+	}
+}
+
+
+/******************** End of Company Footer CSS ********************/
+

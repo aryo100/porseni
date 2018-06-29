@@ -176,6 +176,10 @@
 
 													<div class="space-24"></div>
 
+													<div class="g-recaptcha" data-sitekey="6Lc4P2EUAAAAABBurirXGMomlB1dfmUn3UqLLB4b"></div>
+
+													<div class="space-24"></div>
+													
 													<div class="clearfix">
 														<button type="reset" class="width-30 pull-left btn btn-sm">
 															<i class="ace-icon fa fa-refresh"></i>
@@ -187,7 +191,7 @@
 
 															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
 														</button>
-													</div>
+													</div>								
 												</fieldset>
 											</form>
 											<?php echo form_close()?>
@@ -217,8 +221,8 @@
 		<!-- <![endif]-->
 
 		<!--[if IE]>
-<script src="assets/js/jquery-1.11.3.min.js"></script>
-<![endif]-->
+			<script src="assets/js/jquery-1.11.3.min.js"></script>
+		<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='<?php echo base_url(); ?>assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
@@ -229,6 +233,8 @@
 		<!--[if lte IE 8]>
 		<script src="assets/js/excanvas.min.js"></script>
 		<![endif]-->
+
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery-ui.custom.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery.gritter.min.js"></script>
@@ -303,5 +309,6 @@
 			});
 		</script>
 
+		<p><<?php echo base_url(); ?></p>
 	</body>
 </html>

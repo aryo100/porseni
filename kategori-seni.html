@@ -32,26 +32,51 @@
 		  			<div class="container">
 			  			<div class="navbar-header">
 			  				<div class="logo-container">
-								<img src="assets/images/logo-porseni1.png" style="width: 150px;">
+								<img src="assets/images/logo-porseni1.png">
 			  				</div>
 
-			  				<div class="back-nav-btn">
-								<a class="fa fa-fw fa-arrow-left" href="index.html" style="font-size: 20pt; text-decoration: none; color: #fafafa;"></a>
+			  				<div class="side-nav-btn">
+								<div class="bar"></div>
+			  					<div class="bar"></div>
+			  					<div class="bar"></div>
 			  				</div>
 						</div>
 
 			  			<div id="bs-collapse" class="navbar-collapse collapse container-fluid">
 						   	<ul class="nav navbar-nav">
-						    	<li><a href="index.html" style="color: #009688; background-color: #fafafa; padding: 12px; box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);">Beranda</a></li>
+						    	<li><a href="index.html">Beranda</a></li>
+						    	<li><a class="login-button" href="http://porseni.pnj.ac.id/index.php/login">Login Institusi</a></li>
 						   	</ul>
 						</div>
+					</div>
+				</div>
+
+				<div class="main-side-nav-overlay"></div>
+
+				<div class="main-side-nav" style="margin-top: 30px;">
+					<!-- <div style="height: 40px; background: linear-gradient(135deg, #b2ff59 0%, #009688 100%);"></div> -->
+					<div class="side-nav-header">
+						<p>PORSENI XII</p>
+					</div>
+
+					<div class="side-navbar">
+						<p>Menu</p>
+						<a href="index.html">Beranda</a>
+						<a href="http://porseni.pnj.ac.id/index.php/login">Login Institusi</a>
+					</div>
+					<hr>
+					<div class="side-navbar">
+						<p>Social Media</p>
+						<!-- <a href="#">Facebook</a> -->
+						<a href="https://www.twitter.com/porsenixii2018?s=08">Twitter</a>
+						<a href="https://www.instagram.com/porsenixii2018">Instagram</a>
 					</div>
 				</div>
 			</section>
 		</header>
 
 		<main>
-			<section id="main-header" style="background: linear-gradient(135deg, #b2ff59 0%,#009688 100%);">
+			<section id="main-header" style="">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-3 col-md-3 col-xs-6">
@@ -60,8 +85,8 @@
 
 						<div class="col-lg-9 col-md-9 col-xs-12" style="color: #fff; margin-top: 20px;">
 							<!--<h2 style="text-transform: uppercase;">Kompetisi Cabang Olahraga</h2>-->
-							<a class="sport-regis-btn">Daftar</a>
-							<a class="guidebook-btn">Guidebook</a>
+							<div class="regis-btn"><a>Daftar</a></div>
+							<div class="guidebook-btn"><a>Guidebook</a></div>
 							<p style="font-weight: bold;margin: 0px;text-transform: uppercase; margin-top: 20px;">Contact Person</p>
 							<p style="margin: 0px;">---</p>
 							<p style="margin: 0px;">---</p>
@@ -99,7 +124,65 @@
 									adapun lomba-lomba yang termasuk kedalam cabang olahraga adalah :
 								</p>
 
-								<ul>
+								<div class="col-12">
+									<div class="col-md-3">
+										<div class="competition-container center">
+											<img src="assets/images/cabang-seni/solo-song.png">
+										</div>
+										<p style="text-align: center;">Solo Song</p>
+									</div>
+
+									<div class="col-md-3">
+										<div class="competition-container center">
+											<img src="assets/images/cabang-seni/puisi.png">
+											
+										</div>
+
+										<p style="text-align: center;">Puisi</p>
+									</div>
+
+									<div class="col-md-3">
+										<div class="competition-container center">
+											<img src="assets/images/cabang-seni/karikatur.png">
+											
+										</div>
+										<p style="text-align: center;">Karikatur</p>
+									</div>
+
+									<div class="col-md-3">
+										<div class="competition-container center">
+											<img src="assets/images/cabang-seni/fotografi.png">
+											
+										</div>
+										<p style="text-align: center;">Fotografi</p>
+									</div>
+
+									<div class="col-md-3">
+										<div class="competition-container center">
+											<img src="assets/images/cabang-seni/kaligrafi.png">
+											
+										</div>
+										<p style="text-align: center;">Kaligrafi</p>
+									</div>
+
+									<div class="col-md-3">
+										<div class="competition-container center">
+											<img src="assets/images/cabang-seni/nasyid.png">
+											
+										</div>
+										<p style="text-align: center;">Nasyid</p>
+									</div>
+
+									<div class="col-md-3">
+										<div class="competition-container center">
+											<img src="assets/images/cabang-seni/monolog.png">
+											
+										</div>
+										<p style="text-align: center;">Monolog</p>
+									</div>	
+								</div>
+
+								<!-- <ul>
 									<li>Solo Song</li>
 									<li>Puisi</li>
 									<li>Futsal</li>
@@ -108,7 +191,7 @@
 									<li>Kaligrafi</li>
 									<li>Nasyid</li>
 									<li>Monolog</li>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 
@@ -244,30 +327,40 @@
 		</main>
 
 		<footer>
-			<section id="main-footer">
+			<!-- <section id="main-sosmed">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-12">
-							<p style="font-size: 12pt; display: block; text-align: center;">Made with <i class="fa fa-fw fa-heart" style="color: #EC407A"></i> in Depok</p>
+							<p>Follow Us :</p>
 
-							<div class="sosmed" style="display: block; margin-bottom: 10px">
+							<div class="sosmed">
 								<div class="fa-stack">
-									<a href="#" class="fa fa-facebook fa-stack-1x" style="color: #0D47A1"></a>
+									<a href="#" class="fa fa-facebook fa-stack-1x"></a>
 								</div>
 
 								<div class="fa-stack">
-									<a href="#" class="fa fa-twitter fa-stack-1x" style="color: #039BE5"></a>
+									<a href="https://www.twitter.com/porsenixii2018?s=08" class="fa fa-twitter fa-stack-1x"></a>
 								</div>
 
 								<div class="fa-stack">
-									<a href="#" class="fa fa-instagram fa-stack-1x" style="color: #F44336"></a>
+									<a href="https://www.instagram.com/porsenixii2018" class="fa fa-instagram fa-stack-1x"></a>
 								</div>
 							</div>
-
-							<p style="font-size: 12pt; display: block; text-align: center;"><i class="fa fa-fw fa-copyright"></i>2018 Pentas Olahraga dan Seni</p>
 						</div>
 					</div>
 				</div>
+			</section> -->
+
+			<section id="main-copyright">
+				<div class="company-list">
+					<ul>
+						<li><img src="assets/images/bakroma.png"></li>
+						<li><img src="assets/images/pnj.png"></li>
+						<li><img src="assets/images/polimedia.png"></li>
+					</ul>
+				</div>
+				
+				<p><i class="fa fa-fw fa-copyright"></i>2018 Pentas Olahraga dan Seni</p>	
 			</section>
 		</footer>
 
