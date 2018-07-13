@@ -3,6 +3,8 @@ $id_atlet = "";
 $nama = "";
 $npm = "";
 $gender = "";
+$berat = "";
+$tinggi = "";
 $tanggal_lahir = "";
 $email = "";
 $no_hp = "";
@@ -19,6 +21,8 @@ if ($op=="edit") {
     $tanggal_lahir = $obj->tanggal_lahir;
     $npm = $obj->npm;
     $email = $obj->email;
+    $berat = $obj->berat;
+    $tinggi = $obj->tinggi;
     $no_hp = $obj->no_hp;
     $pt = $obj->pt;
     $foto = $obj->foto;
@@ -129,6 +133,22 @@ if ($op=="edit") {
           <div class="col-sm-3">
             <input type="text" id="form-field-1" placeholder="NPM" class="col-xs-12" name="npm" value="<?php echo $npm;?>"required/>
           </div>
+        </div>
+
+        <!-- Berat -->
+        <div class="form-group">
+          <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Berat Badan </label>
+          <div class="col-sm-3">
+            <input type="text" id="form-field-1" placeholder="Berat" class="col-xs-12" name="berat" value="<?php echo $berat;?>"required/>
+          </div>/Kg
+        </div>
+
+        <!-- Berat -->
+        <div class="form-group">
+          <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Tinggi Badan </label>
+          <div class="col-sm-3">
+            <input type="text" id="form-field-1" placeholder="Tinggi" class="col-xs-12" name="tinggi" value="<?php echo $tinggi;?>"required/>
+          </div>/cm
         </div>
 
         <!-- Email -->

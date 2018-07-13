@@ -18,6 +18,7 @@ class Institusi extends CI_Controller
   function view_atlet(){
     $data['title'] = "Daftar Atlet";
     $data['sql1']=$this->pm->get_atlet($this->session->userdata('kampus'));
+    $data['sql2']=$this->pm->get_pt($this->session->userdata('id'));
     $this->load->view('layout/header');
     $this->load->view('layout/sidebar',$data);
     $this->load->view('pages/institusi_view_data_atlet',$data);
@@ -93,6 +94,8 @@ class Institusi extends CI_Controller
     $nama = $this->input->post('nama');
     $npm = $this->input->post('npm');
     $gender = $this->input->post('gender');
+    $berat = $this->input->post('berat');
+    $tinggi = $this->input->post('tinggi');
     $tanggal_lahir = $this->input->post('tanggal_lahir');
     $email = $this->input->post('email');
     $no_hp = $this->input->post('no_hp');
@@ -105,6 +108,8 @@ class Institusi extends CI_Controller
       'nama' => $nama,
       'npm' => $npm,
       'gender' => $gender,
+      'berat' => $berat,
+      'tinggi' => $tinggi,
       'tanggal_lahir' => $tanggal_lahir,
       'email' => $email,
       'no_hp' => $no_hp,
@@ -142,31 +147,33 @@ class Institusi extends CI_Controller
     $this->load->view('layout/footer');
 	}
 
-  public function siswa_edit($id){
-    $data['title'] = "Edit data Siswa";
-		$data['op'] = 'edit';
-		$data['sql'] = $this->pm->edit_siswa($id);
-    $data['kelas'] = $this->pm->get_kelas();
-    $data['ortu'] = $this->pm->get_ortu();
-    $this->load->view('layout/header');
-    $this->load->view('layout/sidebar',$data);
-    $this->load->view('pages/admin_add_data_siswa',$data);
-    $this->load->view('layout/footer');
-	}
+  public function bukti_atlet_simpan()
+	{
+    // upload foto
+    $n_atlet = $this->input->post('jml_atlet');
+    $config['upload_path'] = realpath(APPPATH . '../assets/upload/galeri');
+    $config['allowed_types'] = 'gif|jpg|png';
+    $config['max_size'] = 2048;//~mb
+    $this->load->library('upload',$config);
 
-  public function view_kelas(){
-    $data['title'] = "kelas";
-    $data['sql'] = $this->pm->get_kelas();
-    $this->load->view('layout/header');
-    $this->load->view('layout/sidebar',$data);
-    $this->load->view('pages/admin_view_kelas',$data);
-    $this->load->view('layout/footer');
+    if($this->upload->do_upload('file')){
+      $data1['gambar'] = $this->upload->data('file_name');
+    }else{
+      echo $this->upload->display_errors();
+    }
+    $this->session->set_flashdata('error_status', 'success');
+
+    $foto = $data1['gambar'];
+		$data = array(
+      'ss_bukti_atlet' => $foto,
+      'n_atlet' => $n_atlet
+      );
+    echo $data['ss_bukti_atlet'].' '.$this->session->userdata('id');
+
+    $this->pm->unapprove($this->session->userdata('id'),$data);
+		
+		// redirect('institusi/view_atlet');
   }
-
-  public function hapus_kelas($id){
-		$this->pm->hapus_kelas($id);
-		redirect('admin/view_kelas');
-	}
 
   public function simpan_kelas(){
     $kelas = $this->input->post('kelas');

@@ -23,6 +23,7 @@ class Login extends CI_Controller {
 				$yglogin=$this->db->get_where('akun',array('username'=>$user, 'password'=>$pass))->row();
 				$data = array('udhmasuk' => true,
 				'username'=>$yglogin->username,
+				'id' => $yglogin->id_user,
 				'kampus' => $yglogin->pt,
 				'role' => $yglogin->status);
 				$this->session->set_userdata($data);
@@ -52,8 +53,6 @@ class Login extends CI_Controller {
 			$config['upload_path'] = realpath(APPPATH . '../assets/upload/ss');
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = 2048;//~mb
-			$config['max_width'] = 2732;//~px
-			$config['max_height'] = 1536;//~px
 			$this->load->library('upload',$config);
 
 			if($this->upload->do_upload('ss')){

@@ -1,5 +1,40 @@
 <div class="page-content">
 	<div class="page-header">
+		<?php 
+			foreach ($sql2 as $obj2) {
+				$ss_bukti_atlet = $obj2->ss_bukti_atlet;
+			}
+			if($ss_bukti_atlet==''){ 
+			?>
+		<div id="alertBox" class="alert alert-block alert-danger">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="ace-icon fa fa-times"></i>
+			</button>
+
+			<i class="ace-icon fa fa-warning red"></i>
+			Silahkan Upload Bukti Pembayaran Atlet Anda, Sebelum Anda Mendaftarkan Atlet Anda. Klik <b><a href="">disini</a></b> atau Klik Tombol <b>Upload Pembayaran</b>.
+		</div>
+		<?php } ?>
+		<?php 
+			$count=0;
+			foreach ($sql1 as $obj1) {
+				$count++;
+
+			}
+			foreach ($sql2 as $obj2) {
+				$n_atlet = $obj2->n_atlet;
+			}
+			if($count<$n_atlet){
+			?>
+		<div id="alertBox" class="alert alert-block alert-success">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="ace-icon fa fa-times"></i>
+			</button>
+
+			<i class="ace-icon fa fa-check green"></i>
+			Silahkan Daftarkan Atlet Anda dengan Klik <b><a href="">disini</a></b> atau Klik Tombol <b>Tambah Data</b>.
+		</div>
+		<?php } ?>
 		<h1>
 			Daftar Atlet
 		</h1>
@@ -7,11 +42,12 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="clearfix" style="height: 43px;" >
-				<a class="btn btn-primary btn-xs" type="button" name="button" href="<?php echo base_url();?>index.php/institusi/add_atlet">Tambah data</a>
+				<a id="tambahDataMhs" class="btn btn-primary btn-xs" type="button" name="button" href="<?php echo base_url();?>index.php/institusi/add_atlet">Tambah data</a>
+				<a id="buktiPembayaran" class="btn btn-primary btn-xs" type="button" name="button" >Upload Pembayaran</a>
 				<!-- <a class="btn btn-primary btn-xs" type="button" name="button" href="<?php echo base_url();?>index.php/pdf_atlet_institusi/<?php echo $obj1->pt;?>" target="blank">Download</a> -->
 				<div class="pull-right tableTools-container"></div>
 			</div>
-			<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+			<table id="dynamic-table" class="table table-striped table-bordered table-hover" disabled>
 				<thead>
 					<tr>
 						<th class="center">
@@ -234,5 +270,158 @@
 			$(this).closest('tr').next().toggleClass('open');
 			$(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
 		});
-})
+	})
+</script>
+
+
+<script>
+	if($('#alertBox').hasClass('alert-danger')) {
+		$('#tambahDataMhs').attr('disabled',true)
+						   .on('click', function(e) {
+							   e.preventDefault();
+						   });
+		$('#dynamic-table').addClass('hidden');
+		$('#dynamic-table').attr('id','table-atlet');
+		
+		$('#buktiPembayaran').on('click', function(){
+			var modal = 
+			'<div class="modal fade">\
+				<div class="modal-dialog">\
+				<div class="modal-content">\
+				<div class="modal-header">\
+					<button type="button" class="close" data-dismiss="modal">&times;</button>\
+					<h4 class="blue">Upload Bukti Pembayaran Atlet</h4>\
+				</div>\
+				\
+				<form enctype="multipart/form-data" method="post" action="bukti_atlet_simpan" class="no-margin">\
+					<div class="modal-body">\
+					<div class="space-4"></div>\
+					<div style="width:75%;margin-left:12%;"><input type="file" name="file" required/></div>\
+					</div>\
+					<div style="width:75%;margin-left:12%;" class="form-group">\
+						<label for="form-field-first">Jumlah Atlet yang Didaftarkan :</label>\
+						\
+						<div>\
+							<input type="number" name="jml_atlet" value="" required/>\
+						</div>\
+					</div>\
+				\
+					<div class="modal-footer center">\
+					<button id="next-regis" type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Submit</button>\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
+					</div>\
+				</form>\
+				</div>\
+				</div>\
+			</div>';
+			
+			
+			var modal = $(modal);
+			modal.modal("show").on("hidden", function(){
+				modal.remove();
+			});
+
+
+			var working = false;
+
+			var form = modal.find('form:eq(0)');
+			var file = form.find('input[type=file]').eq(0);
+			file.ace_file_input({
+				style:'well',
+				btn_choose:'Click to Upload',
+				btn_change:null,
+				no_icon:'ace-icon fa fa-picture-o',
+				thumbnail:'small',
+				before_remove: function() {
+					//don't remove/reset files while being uploaded
+					return !working;
+				},
+				before_change:function(files, dropped) {
+					var file = files[0];
+					if(typeof file == "string") {
+					//file is just a file name here (in browsers that don't support FileReader API such as IE8)
+						if(! (/\.(jpe?g|png|gif)$/i).test(file) ) {
+							//not an image extension?
+							//alert user
+							return false;
+						}
+					}
+					else {
+						var type = $.trim(file.type);
+						if(
+							( type.length > 0 && ! (/^image\/(jpe?g|png|gif)$/i).test(type) )
+							|| 
+							//for android's default browser!
+							( type.length == 0 && ! (/\.(jpe?g|png|gif)$/i).test(file.name) )
+							)
+							{
+								//alert user
+								return false;
+							}
+					
+							if( file.size > 1024*200 ) {
+								//is the file size larger than 100KB?
+								//alert user
+
+								var fileSize = file.size/1024/1024;
+								var n = fileSize.toFixed(2);
+								alert('Your file size is: ' + n + "MB, and it is too large to upload! Please try to upload smaller file (25MB or less).");
+								return false;
+							}
+					}
+					return true;
+				},
+				allowExt: ['jpg', 'jpeg', 'png', 'gif'],
+				allowMime: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+			});
+
+			form.on('submit', function(){
+				// if(!file.data('ace_input_files')) return false;
+				
+				// file.ace_file_input('disable');
+				// form.find('button').attr('disabled', 'disabled');
+				// form.find('.modal-body').append("<div class='center'><i class='ace-icon fa fa-spinner fa-spin bigger-150 orange'></i></div>");
+				
+				// var deferred = new $.Deferred;
+				// working = true;
+				// deferred.done(function() {
+				// 	form.find('button').removeAttr('disabled');
+				// 	form.find('input[type=file]').ace_file_input('enable');
+				// 	form.find('.modal-body > :last-child').remove();
+					
+				// // 	modal.modal("hide");
+
+				// 	// var thumb = file.find('img').data('thumb');
+					
+				// 	// if(thumb) $('#btn-upload').get(0).size = thumb;
+
+				// 	// alert(thumb);
+
+				// 	// var fileSize = form.find('input[type=file]').ace_file_input('size');
+
+				// 	working = false;
+				// });
+				
+				
+				// setTimeout(function(){
+				// 	deferred.resolve();
+				// } , parseInt(Math.random() * 800 + 800));
+
+				// return false;
+			});
+					
+		});
+	}
+
+	else {
+		$('#tambahDataMhs').attr('disabled', false);
+		$('#buktiPembayaran').attr('disabled',true)
+						   .on('click', function(e) {
+							   e.preventDefault();
+						   });
+		// $('#table-atlet').addClass('visible');
+	}
+</script>
+
+<script>
 </script>

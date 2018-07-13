@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Login Page - Ace Admin</title>
+		<title>Login Porseni XII</title>
 
 		<meta name="description" content="User login page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -11,9 +11,10 @@
 		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
 
 		<!-- text fonts -->
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fonts.googleapis.com.css" />
+		<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fonts.googleapis.com.css" /> -->
 
 		<!-- ace styles -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ace.min.css" />
@@ -234,7 +235,6 @@
 		<script src="assets/js/excanvas.min.js"></script>
 		<![endif]-->
 
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery-ui.custom.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/jquery.gritter.min.js"></script>
@@ -252,6 +252,10 @@
 		<!-- ace scripts -->
 		<script src="<?php echo base_url(); ?>assets/js/ace-elements.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/ace.min.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+			async defer>
+		</script>
+		
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 			jQuery(function($) {
@@ -307,6 +311,16 @@
 				allowExt: ['jpg', 'jpeg', 'png', 'gif'],
 				allowMime: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
 			});
+		</script>
+		<script type="text/javascript">
+		$(".g-recaptcha").on('click',function(){
+			alert("grecaptcha is ready!");
+			if (grecaptcha.getResponse() == ""){
+				alert("You can't proceed!");
+			} else {
+				alert("Thank you");
+			}
+		});
 		</script>
 
 		<p><<?php echo base_url(); ?></p>

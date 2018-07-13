@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Jun 2018 pada 02.48
+-- Generation Time: 29 Jun 2018 pada 15.51
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -42,13 +42,11 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id_akun`, `id_user`, `username`, `password`, `status`, `pt`) VALUES
-(1, 1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'master'),
-(6, 2, 'IPB_01', '21232f297a57a5a743894a0e4a801fc3', 'institusi', 'IPB'),
-(7, 0, 'ITB_01', '21232f297a57a5a743894a0e4a801fc3', 'institusi', 'Institut Teknologi Bandung'),
 (9, 0, 're_01', 'fa2bd3306b93e30c96b21b4cc75fa4d7', 'institusi', 're'),
 (21, 0, 'POLBAN_01', '6a0c9dcbffbbe7dfcabfa278ec33064d', 'institusi', 'Politeknik Bandung'),
 (22, 0, 'polnes', 'c8f2b53efd6d10ca0892e104b684c1df', 'institusi', 'Politeknik Nusantara'),
-(23, 0, 'polma', 'af619621d0f584d194722f14508c0677', 'institusi', 'Politeknik Malang');
+(23, 0, 'polma', 'af619621d0f584d194722f14508c0677', 'institusi', 'Politeknik Malang'),
+(24, 0, 'admin', '5701e5352e3c42a691df7cb3466bc044', 'admin', 'master');
 
 -- --------------------------------------------------------
 
@@ -80,7 +78,7 @@ INSERT INTO `atlet` (`id_atlet`, `nama`, `npm`, `gender`, `tanggal_lahir`, `umur
 (4, 'Yohanes A M', '4616010031', 'L', '1999-08-23', 0, '02100727', 'yohanes@gmail.com', 'PNJ', 'uti.png', 'pp.png', 'Tennis', 'approved'),
 (5, 'yo', '4516010031', 'L', '1999-07-31', 0, '081xxxxxxxxx', 'y0@mail.com', 'PNJ', 'tot', 'tot', 'Basket', 'approved'),
 (6, 'apa', '1234567890', 'P', '2018-04-26', 0, '0211992', 'apa@gmail.com', 'IPB', '176779-200.png', 'pp.png', 'Basket', 'approved'),
-(7, 'u', '4616010030', 'P', '2018-04-26', 0, '0321321', 'u@mail.com', 'UNI', '176779-200.png', 'ads.pnj', 'Bulu tangkis', 'unapproved'),
+(7, 'u', '4616010030', 'P', '2018-04-26', 0, '0321321', 'u@mail.com', 'UNI', '176779-200.png', 'ads.pnj', 'Bulu tangkis', 'approved'),
 (8, 'adsd', '3213213', 'P', '2018-03-27', 0, '3221312', 'dassa', 'OI', '366778-200.png', 'sdsa.kl', 'Takrau', 'unapproved'),
 (10, 'dasd', '31321', 'P', '2018-04-23', 0, '13213123', 'dfsd@fdsa.dasd', 're', '176779-200.png', 'das.asd', 'Tennis', 'approved'),
 (11, 'km', '2213', 'L', '2018-04-24', 0, '23213123', 'aad@dsd.das', 're', '366778-2001.png', 'das.asd', 'Basket', 'approved'),
@@ -149,7 +147,8 @@ CREATE TABLE `institusi` (
   `no_telp_pt` int(20) NOT NULL,
   `nama_pj` varchar(255) NOT NULL,
   `no_telp_pj` int(20) NOT NULL,
-  `ss_bukti_pay` varchar(500) NOT NULL
+  `ss_bukti_pay` varchar(500) NOT NULL,
+  `status` enum('pendding','approved','unapproved','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -194,7 +193,7 @@ ALTER TABLE `institusi`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `atlet`
@@ -218,7 +217,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `institusi`
 --
 ALTER TABLE `institusi`
-  MODIFY `id_pt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

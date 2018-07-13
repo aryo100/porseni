@@ -31,7 +31,7 @@ class Admin extends CI_Controller
 
   function view_pt(){
     $data['title'] = "Daftar Institusi";
-    $data['sql1']=$this->pm->get_pt();
+    $data['sql1']=$this->pm->get_pt('');
     $this->load->view('layout/header');
     $this->load->view('layout/sidebar',$data);
     $this->load->view('pages/admin_view_data_institusi',$data);
@@ -157,16 +157,282 @@ class Admin extends CI_Controller
 
   public function pt_approve($id)
 	{
-    $data['status']='approved';
-		$this->pm->unapprove($id,$data);
-		redirect('admin/view_pt');
+    $data1['status']='approved';
+    $id_pt = $this->uri->segment(3);
+    //use for send email
+    $this->load->library('email');
+    //use for random string
+    $this->load->helper('string');
+
+    // $password = $this->input->post('password');
+    $get['akun'] = $this->pm->get_pt($id_pt);
+    foreach ($get['akun'] as $obj1) {
+      $username = $obj1->email;
+      $pt = $obj1->nama_pt;
+    }
+    $password = random_string('alnum',7);
+    $subject = 'Konfirmasi Akun PORSENI XII';
+    // $message = '<p>Selamat Mail nya Berhasil Yey :) <br> Username : '.$username.'<br> Password : '.$password.'</p>';
+    $body = 
+    '<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>720572 - Confirm your Tapwater email address</title>
+        <style type="text/css">
+        
+          @media (min-width: 500px) {
+            .avatar__media .media__fluid {
+              margin-top: 3px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .button,
+            .button__shadow {
+              font-size: 16px !important;
+              display: inline-block !important;
+              width: auto !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            footer li {
+              display: inline-block !important;
+              margin-right: 20px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .mt1--lg {
+              margin-top: 10px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .mt2--lg {
+              margin-top: 20px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .mt3--lg {
+              margin-top: 30px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .mt4--lg {
+              margin-top: 40px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .mb1--lg {
+              margin-bottom: 10px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .mb2--lg {
+              margin-bottom: 20px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .mb3--lg {
+              margin-bottom: 30px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .mb4--lg {
+              margin-bottom: 40px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .pt1--lg {
+              padding-top: 10px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .pt2--lg {
+              padding-top: 20px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .pt3--lg {
+              padding-top: 30px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .pt4--lg {
+              padding-top: 40px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .pb1--lg {
+              padding-bottom: 10px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .pb2--lg {
+              padding-bottom: 20px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .pb3--lg {
+              padding-bottom: 30px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .pb4--lg {
+              padding-bottom: 40px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            pre {
+              font-size: 14px !important;
+            }
+            .body {
+              font-size: 14px !important;
+              line-height: 24px !important;
+            }
+            h1 {
+              font-size: 22px !important;
+            }
+            h2 {
+              font-size: 16px !important;
+            }
+            small {
+              font-size: 12px !important;
+            }
+          }
+    
+    
+          @media (min-width: 500px) {
+            .user-content pre,
+            .user-content code {
+              font-size: 14px !important;
+              line-height: 24px !important;
+            }
+            .user-content ul,
+            .user-content ol,
+            .user-content pre {
+              margin-top: 12px !important;
+              margin-bottom: 12px !important;
+            }
+            .user-content hr {
+              margin: 12px 0 !important;
+            }
+            .user-content h1 {
+              font-size: 22px !important;
+            }
+            .user-content h2 {
+              font-size: 16px !important;
+            }
+            .user-content h3 {
+              font-size: 14px !important;
+            }
+          }
+        </style>
+      </head>
+  
+      <body class="body" style="font-family: -apple-system, BlinkMacSystemFont, Roboto, Ubuntu, Helvetica, sans-serif; line-height: initial; max-width: 580px;">
+        <header class="mt2 mb2" style="margin-bottom: 20px; margin-top: 20px;">
+          <img src="assets/images/logo-porseni1.png" style="height: auto; width: 42px;">
+        </header>
+    
+        <h1 style="box-sizing: border-box; font-size: 1.25rem; margin: 0; margin-bottom: 0.5em; padding: 0; color: #333;">Terima Kasih telah Mendaftar di PORSENI XII</h1>
+        <p style="color: #999; box-sizing: border-box; margin: 0; margin-bottom: 0.5em; padding: 0; margin-bottom: 24px;">Berikut Ini Username dan Password yang dapat digunakan untuk login di website admin PORSENI XII 2018</p>
+        
+        <div style="padding: 12px 14px; border: 1px solid #dadada; margin-bottom: 24px; display: inline-block;">
+          <div style="display: inline-block">
+            <h2 style="color: #333; font-size: 16px; font-weight: 400; margin: 0;">Username</h2>
+            <p style="color: #999; font-size: 14px; font-weight: 400; margin: 0;">'.$username.'</p>
+          </div>
+          
+          <div style="display: inline-block; margin-left: 42px;">
+              <h2 style="color: #333; font-size: 16px; font-weight: 400; margin: 0;">Password</h2>
+              <p style="color: #999; font-size: 14px; font-weight: 400; margin: 0;">'.$password.'</p>
+          </div>
+        </div>
+        
+        <p class="db mb1 gray" style="box-sizing: border-box; color: #999; display: block; margin: 0; margin-bottom: 10px; padding: 0;">Harap Segera Login untuk memasukkan data mahasiswa yang akan mengikuti lomba PORSENI XII 2018. klik <a href="https://porseni.pnj.ac.id/index.php/login">Disini</a> untuk kehalaman login.</p>
+        
+        <footer class="mt2 mt4--lg" style="border-top: 1px solid #D9D9D9; margin-top: 20px; padding: 20px 0;">
+          <ul style="box-sizing: border-box; list-style: none; margin: 0; margin-bottom: 0; padding: 0;">
+            <li style="box-sizing: border-box; margin: 0; margin-bottom: 10px; padding: 0;">
+              <small style="box-sizing: border-box; color: #999;"><a href="https://tapwater.co" style="border-bottom: 1px solid #E6E6E6; box-sizing: border-box; color: inherit; text-decoration: none;" target="_blank">PORSENI</a></small>
+            </li>
+            <li style="box-sizing: border-box; margin: 0; margin-bottom: 10px; padding: 0;">
+              <small style="box-sizing: border-box; color: #999;"><a href="https://tapwater.co/privacy" style="border-bottom: 1px solid #E6E6E6; box-sizing: border-box; color: inherit; text-decoration: none;" target="_blank">Berita Terbaru</a></small>
+            </li>
+          </ul>
+        </footer>
+      </body>
+    </html>';
+    // Also, for getting full html you may use the following internal method:
+    $body = $this->email->full_html($subject, $body);
+
+    $result = $this->email
+        ->from('porseni@pnj.ac.id')
+        // ->reply_to('aryo100@gmail.com')    // Optional, an account where a human being reads.
+        ->to($username)
+        ->subject($subject)
+        ->message($body)
+        ->send();
+    var_dump($result);
+    echo '<br />';
+    echo $this->email->print_debugger();
+
+    $data = array(
+      'username' => $username,
+      'password' =>  md5($password),
+      'id_user' => $id_pt,
+      'pt' => $pt,
+      'status' => 'institusi'
+			);
+    $this->pm->simpan_akun($data);
+		$this->pm->unapprove($id_pt,$data1);
+		// redirect('admin/view_pt');
   }
 
   public function pt_unapprove($id)
 	{
+    $id_pt = $this->uri->segment(3);
     $data['status']='unapproved';
-		$this->pm->unapprove($id,$data);
-		redirect('admin/view_pt');
+    $this->pm->unapprove($id,$data);
+    $cok;
+		// redirect('admin/view_pt');
   }
 
   public function berita_simpan()
@@ -204,7 +470,7 @@ class Admin extends CI_Controller
 		if ($op=="tambah") {
 			$this->pm->simpan_berita($data);
 		}else{
-			$this->pm->update_berita($id_akun,$data);
+			$this->pm->update_berita($id_berita,$data);
 		}
 		redirect('admin/view_berita');
   }

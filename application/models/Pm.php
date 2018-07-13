@@ -43,6 +43,14 @@ class pm extends CI_Model{
   
   function simpan_akun($data){
 		$this->db->insert('akun',$data);
+  }
+  
+  function simpan_galeri($data){
+		$this->db->insert('akun',$data);
+  }
+  
+  function simpan_bukti($data){
+		$this->db->insert('institusi',$data);
 	}
 
   function hapus_akun($id){
@@ -135,8 +143,13 @@ class pm extends CI_Model{
     return $sql;
   }
 
-  function get_pt(){
-    $sql=$this->db->query("SELECT* FROM institusi");
+  function get_pt($id_pt){
+    if($id_pt == ''){
+      $sql=$this->db->query("SELECT* FROM institusi");
+    }
+    else{
+      $sql=$this->db->query("SELECT* FROM institusi where id_pt = '$id_pt'");
+    }
     return $sql->result();
   }
 
