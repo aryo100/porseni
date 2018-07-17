@@ -83,9 +83,9 @@
 						<td colspan="8">
 							<div class="table-detail">
 								<div class="row">
-									<div class="col-xs-12 col-sm-8">
+									<div class="col-xs-12 col-sm-4">
 										<div class="text-center">
-											<img height="250" class="thumbnail inline no-margin-bottom" alt="Domain Owner's Avatar" src="<?php echo base_url(); ?>assets/upload/ss/<?php echo $obj1->ss_bukti_pay; ?>" />
+											<img width="100%" class="thumbnail inline no-margin-bottom" alt="Domain Owner's Avatar" src="<?php echo base_url(); ?>assets/upload/ss/<?php echo $obj1->ss_bukti_pay; ?>" />
 											
 										</div>
 									</div>
@@ -143,6 +143,21 @@
 													<span><?php echo $obj1->no_telp_pt; ?></span>
 												</div>
 											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> Banyak Atlet </div>
+
+												<div class="profile-info-value">
+													<span><?php echo $obj1->n_atlet; ?></span>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-xs-12 col-sm-4">
+										<div class="text-center">
+											<img width="100%" class="thumbnail inline no-margin-bottom" alt="Domain Owner's Avatar" src="<?php echo base_url(); ?>assets/upload/ss/<?php echo $obj1->ss_bukti_atlet; ?>" />
+											
 										</div>
 									</div>
 								</div>

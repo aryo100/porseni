@@ -10,7 +10,9 @@ $email = "";
 $no_hp = "";
 $pt = "";
 $foto = "";
-$ss = "";
+$ss_forlap = "";
+$ss_ktm = "";
+$ss_ktp = "";
 $cabang = "";
 if ($op=="edit") {
   foreach ($sql->result() as $obj) {
@@ -26,40 +28,43 @@ if ($op=="edit") {
     $no_hp = $obj->no_hp;
     $pt = $obj->pt;
     $foto = $obj->foto;
-    $ss = $obj->ss;
+    $ss_forlap = $obj->ss_forlap;
+    $ss_ktp = $obj->ss_ktp;
+    $ss_ktm = $obj->ss_ktm;
     $cabang = $obj->cabang;
   }
 }
 ?>	
 
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/chosen.min.css" />
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/chosen.min.css"/>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-datepicker3.min.css"/>
 <script src="<?php echo base_url(); ?>assets/js/jquery-2.1.4.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.min.js"<?php echo base_url(); ?>></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery-ui.custom.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.gritter.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/bootbox.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.easypiechart.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.hotkeys.index.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/bootstrap-wysiwyg.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/select2.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/spinbox.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/bootstrap-editable.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/ace-editable.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.maskedinput.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery-ui.custom.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.gritter.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/bootbox.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.easypiechart.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.hotkeys.index.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/bootstrap-wysiwyg.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/select2.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/spinbox.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/jquery.maskedinput.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.gritter.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootbox.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.easypiechart.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.hotkeys.index.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/chosen.jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap-wysiwyg.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/select2.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/spinbox.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap-editable.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/ace-editable.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.maskedinput.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery-ui.custom.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.gritter.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootbox.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.easypiechart.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.hotkeys.index.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap-wysiwyg.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/select2.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/spinbox.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.maskedinput.min.js"></script>
 
 		<!-- ace scripts -->
 		<script src="<?php echo base_url(); ?>assets/js/ace-elements.min.js"></script>
@@ -167,46 +172,149 @@ if ($op=="edit") {
           </div>
         </div>
 
-        <!-- prodi -->
-        <!-- <div class="form-group">
-          <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Perguruan Tinggi </label>
-          <div class="col-sm-3">
-            <input type="text" id="form-field-1" placeholder="" class="col-xs-12" name="pt" value="<?php echo $pt;?>"required/>
-          </div>
-        </div> -->
-
-        <!-- foto -->
-        <!-- <div class="form-group">
-          <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Foto </label>
-          <div class="col-sm-3">
-            <input type="text" id="form-field-1" placeholder="" class="col-xs-12" name="foto" value="<?php echo $foto;?>"required/>
-          </div>
-        </div> -->
-
         <!-- ss -->
         <div class="form-group">
           <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Bukti Screenshot Forlap Dikti </label>
           <div class="col-sm-3">
             <div class="image_preview1 profile-picture">
-              <img class="pict_url editable img-responsive  editable-empty" src="<?php echo base_url();?>assets/upload/ss/<?php if($ss != ""){echo $ss;} else {echo "ss.jpg";}?>">
+              <img class="pict_url editable img-responsive  editable-empty" src="<?php echo base_url();?>assets/upload/ss/<?php if($ss_forlap != ""){echo $ss_forlap;} else {echo "ss.jpg";}?>">
             </div>
-            <input name="ss" class="upload_btn_ss" type="file" accept="image/*" value="<?php echo $ss;?>" style="float: left;" <?php if($op!="edit"){echo "required";} ?> />
+            <input name="ss_forlap" class="upload_btn_ss_forlap" type="file" accept="image/*" value="<?php echo $ss_forlap;?>" style="float: left;" <?php if($op!="edit"){echo "required";} ?> />
           </div>
         </div>
-        <!-- <div class="form-group">
-          <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ss </label>
+
+        <!-- ss -->
+        <div class="form-group">
+          <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Foto KTM </label>
           <div class="col-sm-3">
-            <input type="text" id="form-field-1" placeholder="" class="col-xs-12" name="ss" value="<?php echo $ss;?>"required/>
+            <div class="image_preview2 profile-picture">
+              <img class="pict_url editable img-responsive  editable-empty" src="<?php echo base_url();?>assets/upload/ss/<?php if($ss_ktm != ""){echo $ss_ktm;} else {echo "ktm.jpg";}?>">
+            </div>
+            <input name="ss_ktm" class="upload_btn_ss_ktm" type="file" accept="image/*" value="<?php echo $ss_ktm;?>" style="float: left;" <?php if($op!="edit"){echo "required";} ?> />
           </div>
-        </div> -->
+        </div>
+
+        <!-- ss -->
+        <div class="form-group">
+          <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Foto KTP </label>
+          <div class="col-sm-3">
+            <div class="image_preview3 profile-picture">
+              <img class="pict_url editable img-responsive  editable-empty" src="<?php echo base_url();?>assets/upload/ss/<?php if($ss_ktp != ""){echo $ss_ktp;} else {echo "ktp.jpg";}?>">
+            </div>
+            <input name="ss_ktp" class="upload_btn_ss_ktp" type="file" accept="image/*" value="<?php echo $ss_ktp;?>" style="float: left;" <?php if($op!="edit"){echo "required";} ?> />
+          </div>
+        </div>
 
         <!-- cabang -->
+
         <div class="form-group">
+          <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Cabang Olahraga </label>
+          <div class="col-sm-3">
+            <select multiple class="chosen-select form-control" data-placeholder="Silahkan Pilih Cabang Anda...">
+              <option value="Atletik Putra 100 M">Atletik Putra 100 M</option>
+              <option value="Atletik Putri 100 M">Atletik Putri 100 M</option>
+              <option value="Atletik Putra 5000 M">Atletik Putra 5000 M</option>
+              <option value="Atletik Putri 5000 M">Atletik Putri 5000 M</option>
+              <option value="Basket Putra">Basket Putra</option>
+              <option value="Basket Putri">Basket Putri</option>
+              <option value="Futsal Putra">Futsal Putra</option>
+              <option value="Futsal Putri">Futsal Putri</option>
+              <option value="Bulutangkis Tunggal Putra">Bulutangkis Tunggal Putra</option>
+              <option value="Bulutangkis Tunggal Putri">Bulutangkis Tunggal Putri</option>
+              <option value="Bulutangkis Ganda Putra">Bulutangkis Ganda Putra</option>
+              <option value="Bulutangkis Ganda Putri">Bulutangkis Ganda Putri</option>
+              <option value="Bulutangkis Beregu Putra">Bulutangkis Beregu Putra</option>
+              <option value="Bulutangkis Beregu Putri">Bulutangkis Beregu Putri</option>
+              <option value="Bulutangkis Ganda Campuran">Bulutangkis Ganda Campuran</option>
+              <option value="Catur Meja 1 Putra">Catur Meja 1 Putra</option>
+              <option value="Catur Meja 1 Putri">Catur Meja 1 Putri</option>
+              <option value="Catur Meja 2 Putra">Catur Meja 2 Putra</option>
+              <option value="Catur Meja 2 Putri">Catur Meja 2 Putri</option>
+              <option value="Catur Meja 3 Putra">Catur Meja 3 Putra</option>
+              <option value="Catur Meja 3 Putri">Catur Meja 3 Putri</option>
+              <option value="Catur Beregu Putra">Catur Beregu Putra</option>
+              <option value="Catur Beregu Putri">Catur Beregu Putri</option>
+              <option value="Panjat Tebing Lead Putra">Panjat Tebing Lead Putra</option>
+              <option value="Panjat Tebing Lead Putri">Panjat Tebing Lead Putri</option>
+              <option value="Panjat Tebing Speed Putra">Panjat Tebing Speed Putra</option>
+              <option value="Panjat Tebing Speed Putri">Panjat Tebing Speed Putri</option>
+              <option value="Panjat Tebing Boulder Putra">Panjat Tebing Boulder Putra</option>
+              <option value="Panjat Tebing Boulder Putri">Panjat Tebing Boulder Putri</option>
+              <option value="Voli Putra">Voli Putra</option>
+              <option value="Voli Putri">Voli Putri</option>
+              <option value="Karate Putra Kumite - 55 kg">Karate Putra Kumite - 55 kg</option>
+              <option value="Karate Putra Kumite - 60 kg">Karate Putra Kumite - 60 kg</option>
+              <option value="Karate Putra Kumite - 65 kg">Karate Putra Kumite - 65 kg</option>
+              <option value="Karate Putra Kumite - 70 kg">Karate Putra Kumite - 70 kg</option>
+              <option value="Karate Putra Kumite - 75 kg">Karate Putra Kumite - 75 kg</option>
+              <option value="Karate Putri Kumite - 48 kg">Karate Putri Kumite - 48 kg</option>
+              <option value="Karate Putri Kumite - 53 kg">Karate Putri Kumite - 53 kg</option>
+              <option value="Karate Putri Kumite - 60 kg">Karate Putri Kumite - 60 kg</option>
+              <option value="Karate Putri Kumite > 60 kg">Karate Putri Kumite > 60 kg</option>
+              <option value="Karate Putra Kata Perorangan">Karate Putra Kata Perorangan</option>
+              <option value="Karate Putri Kata Perorangan">Karate Putri Kata Perorangan</option>
+              <option value="Karate Putra Kata Beregu">Karate Putra Kata Beregu</option>
+              <option value="Karate Putri Kata Beregu">Karate Putri Kata Beregu</option>
+              <option value="Pencak Silat Putra Kelas A (45-50 kg)">Pencak Silat Putra Kelas A (45-50 kg)</option>
+              <option value="Pencak Silat Putri Kelas A (45-50 kg)">Pencak Silat Putri Kelas A (45-50 kg)</option>
+              <option value="Pencak Silat Putra Kelas B (50-55 kg)">Pencak Silat Putra Kelas B (50-55 kg)</option>
+              <option value="Pencak Silat Putri Kelas B (50-55 kg)">Pencak Silat Putri Kelas B (50-55 kg)</option>
+              <option value="Pencak Silat Putra Kelas C (55-60 kg)">Pencak Silat Putra Kelas C (55-60 kg)</option>
+              <option value="Pencak Silat Putri Kelas C (55-60 kg)">Pencak Silat Putri Kelas C (55-60 kg)</option>
+              <option value="Pencak Silat Putra Kelas D (60-65 kg)">Pencak Silat Putra Kelas D (60-65 kg)</option>
+              <option value="Pencak Silat Putri Kelas D (60-65 kg)">Pencak Silat Putri Kelas D (60-65 kg)</option>
+              <option value="Pencak Silat Putra Kelas E (65-70 kg)">Pencak Silat Putra Kelas E (65-70 kg)</option>
+              <option value="Pencak Silat Putri Kelas E (65-70 kg)">Pencak Silat Putri Kelas E (65-70 kg)</option>
+              <option value="Pencak Silat Putra Kelas F (70-75 kg)">Pencak Silat Putra Kelas F (70-75 kg)</option>
+              <option value="Pencak Silat Putra Tunggal Atraksi">Pencak Silat Putra Tunggal Atraksi</option>
+              <option value="Pencak Silat Putri Tunggal Atraksi">Pencak Silat Putri Tunggal Atraksi</option>
+              <option value="Taekwondo Putra Under 54 Kg">Taekwondo Putra Under 54 Kg</option>
+              <option value="Taekwondo Putra Under 58 Kg (> 54-58 Kg)">Taekwondo Putra Under 58 Kg (> 54-58 Kg)</option>
+              <option value="Taekwondo Putra Under 63 Kg (> 58-63 Kg)">Taekwondo Putra Under 63 Kg (> 58-63 Kg)</option>
+              <option value="Taekwondo Putra Under 68 Kg (> 63-68 Kg)">Taekwondo Putra Under 68 Kg (> 63-68 Kg)</option>
+              <option value="Taekwondo Putra Under 74 Kg (> 68-74 Kg)">Taekwondo Putra Under 74 Kg (> 68-74 Kg)</option>
+              <option value="Taekwondo Putri Under 46 Kg">Taekwondo Putri Under 46 Kg</option>
+              <option value="Taekwondo Putri Under 49 Kg (> 46-49 Kg)">Taekwondo Putri Under 49 Kg (> 46-49 Kg)</option>
+              <option value="Taekwondo Putri Under 53 Kg (> 49-53 Kg)">Taekwondo Putri Under 53 Kg (> 49-53 Kg)</option>
+              <option value="Taekwondo Putri Under 57 Kg (> 53-57 Kg)">Taekwondo Putri Under 57 Kg (> 53-57 Kg)</option>
+              <option value="Taekwondo Putri Under 57 Kg (> 57-62 Kg)">Taekwondo Putri Under 57 Kg (> 57-62 Kg)</option>
+              <option value="Taekwondo Putra Pomsae Individu">Taekwondo Putra Pomsae Individu</option>
+              <option value="Taekwondo Putri Pomsae Individu">Taekwondo Putri Pomsae Individu</option>
+              <option value="Taekwondo Putra Pomsae Beregu">Taekwondo Putra Pomsae Beregu</option>
+              <option value="Taekwondo Putri Pomsae Beregu">Taekwondo Putri Pomsae Beregu</option>
+              <option value="Solo Song Pop Putra">Solo Song Pop Putra</option>
+              <option value="Solo Song Pop Putri">Solo Song Pop Putri</option>
+              <option value="Solo Song Dangdut Putra">Solo Song Dangdut Putra</option>
+              <option value="Solo Song Dangdut Putri">Solo Song Dangdut Putri</option>
+              <option value="Solo Song Melayu Putra">Solo Song Melayu Putra</option>
+              <option value="Solo Song Melayu Putri">Solo Song Melayu Putri</option>
+              <option value="Puisi Putra">Puisi Putra</option>
+              <option value="Puisi Putri">Puisi Putri</option>
+              <option value="Karikatur Putra">Karikatur Putra</option>
+              <option value="Karikatur Putra">Karikatur Putra</option>
+              <option value="Karikatur Putri">Karikatur Putri</option>
+              <option value="Fotografi Foto Warna Putra">Fotografi Foto Warna Putra</option>
+              <option value="Fotografi Foto Warna Putri">Fotografi Foto Warna Putri</option>
+              <option value="Fotografi Foto Hitam Putih Putra">Fotografi Foto Hitam Putih Putra</option>
+              <option value="Fotografi Foto Hitam Putih Putri">Fotografi Foto Hitam Putih Putri</option>
+              <option value="Kaligrafi Khat/Arab Putra">Kaligrafi Khat/Arab Putra</option>
+              <option value="Kaligrafi Khat/Arab Putri">Kaligrafi Khat/Arab Putri</option>
+              <option value="Kaligrafi Umum/Latin Putra">Kaligrafi Umum/Latin Putra</option>
+              <option value="Kaligrafi Umum/Latin Putri">Kaligrafi Umum/Latin Putri</option>
+              <option value="Nasyid Acapela Putra">Nasyid Acapela Putra</option>
+              <option value="Monolog Putra">Monolog Putra</option>
+              <option value="Monolog Putri">Monolog Putri</option>
+            </select>
+          </div>
+        </div>
+
+
+        <!-- <div class="form-group">
           <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Cabang Olahraga </label>
           <div class="col-sm-3">
             <input type="text" id="form-field-1" placeholder="Tennis, Basket, dll.." class="col-xs-12" name="cabang" value="<?php echo $cabang;?>"required/>
           </div>
-        </div>
+        </div> -->
 
         <!-- Submit -->
         <div class="form-group">
@@ -290,9 +398,68 @@ if ($op=="edit") {
         }
     });
     
-    $('.upload_btn_ss').on('change', function() {
+    $('.upload_btn_ss_forlap').on('change', function() {
       if (typeof (FileReader) != "undefined") {
         var image_holder = $('.image_preview1');
+        image_holder.empty();
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('<img >', {
+            'src': e.target.result,
+            'id' : 'avatar',
+            'class': 'pict_url editable img-responsive'
+          }).appendTo(image_holder);
+
+          // var image = new Image();
+
+          // image.src = reader.result;
+
+          // image.onload = function() {
+          //     alert(image.width);
+        };
+        image_holder.show();
+        reader.readAsDataURL($(this)[0].files[0]);
+      }
+
+      else {
+        alert("cant show up the picture. please change your browser to use it properly");
+      };
+    });
+
+
+    $('.upload_btn_ss_ktp').on('change', function() {
+      if (typeof (FileReader) != "undefined") {
+        var image_holder = $('.image_preview3');
+        image_holder.empty();
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('<img >', {
+            'src': e.target.result,
+            'id' : 'avatar',
+            'class': 'pict_url editable img-responsive'
+          }).appendTo(image_holder);
+
+          // var image = new Image();
+
+          // image.src = reader.result;
+
+          // image.onload = function() {
+          //     alert(image.width);
+        };
+        image_holder.show();
+        reader.readAsDataURL($(this)[0].files[0]);
+      }
+
+      else {
+        alert("cant show up the picture. please change your browser to use it properly");
+      };
+    });
+
+    $('.upload_btn_ss_ktm').on('change', function() {
+      if (typeof (FileReader) != "undefined") {
+        var image_holder = $('.image_preview2');
         image_holder.empty();
 
         var reader = new FileReader();
@@ -336,6 +503,14 @@ if ($op=="edit") {
   //     var height = img.clientHeight;
   //   });
   // });
+</script>
+  
+<script>
+  $('.chosen-select').chosen({
+    allow_single_deselect:true,
+    max_selected_options: 1,
+    height: "120px"
+  }); 
 </script>
 
 

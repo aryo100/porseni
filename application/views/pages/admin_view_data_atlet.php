@@ -47,7 +47,7 @@
 							<td><?php echo $obj1->gender; ?></td>
 							<td>
 								<?php 
-									$dob= $obj1->umur; ;
+									$dob= $obj1->tanggal_lahir; ;
 									$diff = (date('Y') - date('Y',strtotime($dob)));
 									echo $diff;
 								?>

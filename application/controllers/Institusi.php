@@ -79,12 +79,34 @@ class Institusi extends CI_Controller
     $config1['upload_path'] = realpath(APPPATH . '../assets/upload/ss');
     $config1['allowed_types'] = 'gif|jpg|png';
     $config1['max_size'] = 2048;//~mb
-    $config1['max_width'] = 2732;//~px
-    $config1['max_height'] = 1536;//~px
     $this->upload->initialize($config1);
 
-    if($this->upload->do_upload('ss')){
-      $data1['ss'] = $this->upload->data('file_name');
+    if($this->upload->do_upload('ss_forlap')){
+      $data1['ss_forlap'] = $this->upload->data('file_name');
+    }else{
+      echo $this->upload->display_errors();
+    }
+    $this->session->set_flashdata('error_status', 'success');
+
+    $config1['upload_path'] = realpath(APPPATH . '../assets/upload/ss');
+    $config1['allowed_types'] = 'gif|jpg|png';
+    $config1['max_size'] = 2048;//~mb
+    $this->upload->initialize($config1);
+
+    if($this->upload->do_upload('ss_ktm')){
+      $data1['ss_ktm'] = $this->upload->data('file_name');
+    }else{
+      echo $this->upload->display_errors();
+    }
+    $this->session->set_flashdata('error_status', 'success');
+
+    $config1['upload_path'] = realpath(APPPATH . '../assets/upload/ss');
+    $config1['allowed_types'] = 'gif|jpg|png';
+    $config1['max_size'] = 2048;//~mb
+    $this->upload->initialize($config1);
+
+    if($this->upload->do_upload('ss_ktp')){
+      $data1['ss_ktp'] = $this->upload->data('file_name');
     }else{
       echo $this->upload->display_errors();
     }
@@ -101,7 +123,9 @@ class Institusi extends CI_Controller
     $no_hp = $this->input->post('no_hp');
     $pt = $this->session->userdata('kampus');
     $foto = $data1['gambar'];
-    $ss = $data1['ss'];
+    $ss_forlap = $data1['ss_forlap'];
+    $ss_ktp = $data1['ss_ktp'];
+    $ss_ktm = $data1['ss_ktm'];
     // $ss = $this->input->post('ss');
     $cabang = $this->input->post('cabang');
 		$data = array(
@@ -120,8 +144,14 @@ class Institusi extends CI_Controller
     if($foto != ""){
       $data['foto'] = $foto;
     }
-    if($ss != ""){
-      $data['ss'] = $ss;
+    if($ss_forlap != ""){
+      $data['ss_forlap'] = $ss_forlap;
+    }
+    if($ss_ktm != ""){
+      $data['ss_ktm'] = $ss_ktm;
+    }
+    if($ss_ktp != ""){
+      $data['ss_ktp'] = $ss_ktp;
     }
     // redirect('institusi/asal/'.$foto.'/'.$data['ss']);
     if ($op=="tambah") {
