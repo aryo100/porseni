@@ -210,7 +210,7 @@ if ($op=="edit") {
         <div class="form-group">
           <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Cabang Olahraga </label>
           <div class="col-sm-3">
-            <select multiple class="chosen-select form-control" data-placeholder="Silahkan Pilih Cabang Anda...">
+            <select name="cabang" multiple class="chosen-select form-control" data-placeholder="Silahkan Pilih Cabang Anda...">
               <option value="Atletik Putra 100 M">Atletik Putra 100 M</option>
               <option value="Atletik Putri 100 M">Atletik Putri 100 M</option>
               <option value="Atletik Putra 5000 M">Atletik Putra 5000 M</option>

@@ -38,90 +38,120 @@
 											</ul>
 
 											<div class="tab-content no-border padding-24">
-												<div id="home" class="tab-pane in active">
-													<div class="row">
-														<div class="col-xs-12 col-sm-3 center">
-															<span class="profile-picture">
-																<img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="<?php echo base_url();?>assets/upload/foto/<?php if($sql['foto'] != ""){echo $sql['foto'];} else {echo "profile-pic.jpg";}?>" />
-															</span>
-														</div><!-- /.col -->
+                        <div id="home" class="tab-pane in active">
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-3 center">
+                              <span class="profile-picture">
+                                <img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="<?php echo base_url();?>assets/upload/foto/<?php if($sql['foto'] != ""){echo $sql['foto'];} else {echo "profile-pic.jpg";}?>" />
+                              </span>
+                            </div><!-- /.col -->
 
-														<div class="col-xs-12 col-sm-9">
-															<h4 class="blue">
-																<span class="middle"><?php echo $sql['nama'];?></span>
-															</h4>
+                            <div class="col-xs-12 col-sm-9">
+                              <h4 class="blue">
+                                <span class="middle"><?php echo $sql['nama'];?></span>
 
-															<div class="profile-user-info">
-																<div class="profile-info-row">
-																	<div class="profile-info-name"> NIM/NPM </div>
+                              </h4>
 
-																	<div class="profile-info-value">
-																		<span><?php echo $sql['npm'];?></span>
-																	</div>
-																</div>
+                              <div class="profile-user-info">
+                                <div class="profile-info-row">
+                                  <div class="profile-info-name"> NIM/NPM </div>
 
-																<div class="profile-info-row">
-																	<div class="profile-info-name">Tanggal Lahir </div>
+                                  <div class="profile-info-value">
+                                    <span><?php echo $sql['npm'];?></span>
+                                  </div>
+                                </div>
 
-																	<div class="profile-info-value">
-																		<!-- <span><?php echo $sql['tempat_lahir'];?></span> -->
-																		<span><?php echo $sql['tanggal_lahir'];?></span>
-																	</div>
-																</div>
+                                <div class="profile-info-row">
+                                  <div class="profile-info-name">Tanggal Lahir </div>
 
-																<div class="profile-info-row">
-																	<div class="profile-info-name"> Jenis Kelamin </div>
+                                  <div class="profile-info-value">
+                                    <!-- <span><?php echo $sql['tempat_lahir'];?></span> -->
+                                    <span><?php echo $sql['tanggal_lahir'];?></span>
+                                  </div>
+                                </div>
 
-																	<div class="profile-info-value">
-																		<span><?php if($sql['gender'] == 'L'){ echo 'Laki - laki'; }else{ echo 'Perempuan';} ?></span>
-																	</div>
-																</div>
+                                <div class="profile-info-row">
+                                  <div class="profile-info-name"> Jenis Kelamin </div>
 
-																<!-- <div class="profile-info-row">
-																	<div class="profile-info-name"> Alamat </div>
+                                  <div class="profile-info-value">
+                                    <span><?php if($sql['gender'] == 'L'){ echo 'Laki - laki'; }else{ echo 'Perempuan';} ?></span>
+                                  </div>
+                                </div>
 
-																	<div class="profile-info-value">
-																		<span><?php echo $sql['alamat'];?></span>
-																		<span><?php echo $sql['kelurahan'];?></span><br />
-																		<span><?php echo $sql['kecamatan'];?></span>
-																		<span><?php echo $sql['kota'];?></span>
-																		<span><?php echo $sql['provinsi'];?></span>
-																	</div>
-																</div> -->
+                                <!-- <div class="profile-info-row">
+                                  <div class="profile-info-name"> Alamat </div>
 
+                                  <div class="profile-info-value">
+                                    <span><?php echo $sql['alamat'];?></span>
+                                    <span><?php echo $sql['kelurahan'];?></span><br />
+                                    <span><?php echo $sql['kecamatan'];?></span>
+                                    <span><?php echo $sql['kota'];?></span>
+                                    <span><?php echo $sql['provinsi'];?></span>
+                                  </div>
+                                </div> -->
 
-																<div class="profile-info-row">
-																	<div class="profile-info-name"> Cabang Olahraga</div>
+                                <div class="profile-info-row">
+                                  <div class="profile-info-name"> Tinggi </div>
 
-																	<div class="profile-info-value">
-																		<span><?php echo $sql['cabang'];?></span>
-																	</div>
-																</div>
+                                  <div class="profile-info-value">
+                                    <span><?php echo $sql['tinggi'];?>/cm</span>
+                                  </div>
+                                </div>
+                                
+                                <div class="profile-info-row">
+                                  <div class="profile-info-name"> Berat </div>
 
-																<div class="profile-info-row">
-																	<div class="profile-info-name"> Perguruan Tinggi </div>
+                                  <div class="profile-info-value">
+                                    <span><?php echo $sql['berat'];?>/kg</span>
+                                  </div>
+                                </div>
 
-																	<div class="profile-info-value">
-																		<span><?php echo $sql['pt'];?></span>
-																	</div>
-																</div>
+                                <div class="profile-info-row">
+                                  <div class="profile-info-name"> Cabang Olahraga</div>
 
-																<div class="profile-info-row">
-																	<div class="profile-info-name"> Email </div>
+                                  <div class="profile-info-value">
+                                    <span><?php echo $sql['cabang'];?></span>
+                                  </div>
+                                </div>
 
-																	<div class="profile-info-value">
-																		<span><?php echo $sql['email'];?></span>
-																	</div>
-																</div>
+                                <div class="profile-info-row">
+                                  <div class="profile-info-name"> Perguruan Tinggi </div>
 
-                                								<div class="profile-info-row">
-																	<div class="profile-info-name"> No. Telp </div>
+                                  <div class="profile-info-value">
+                                    <span><?php echo $sql['pt'];?></span>
+                                  </div>
+                                </div>
 
-																	<div class="profile-info-value">
-																		<span><?php echo $sql['no_hp'];?></span>
-																	</div>
-																</div>
-												</div>
+                                <div class="profile-info-row">
+                                  <div class="profile-info-name"> Email </div>
+
+                                  <div class="profile-info-value">
+                                    <span><?php echo $sql['email'];?></span>
+                                  </div>
+                                </div>
+
+                                                <div class="profile-info-row">
+                                  <div class="profile-info-name"> No. Telp </div>
+
+                                  <div class="profile-info-value">
+                                    <span><?php echo $sql['no_hp'];?></span>
+                                  </div>
+                                </div>
+
+                                <div class="profile-info-row">
+                                  
+                                <div class="profile-info-name">
+
+                                </div>
+                                <div class="profile-info-value">
+
+                                </div>
+                                </div>
+
+                              </div>
+                            </div><!-- /.col -->
+                          </div><!-- /.row -->
+                        </div><!-- /#home -->
 
 												<div id="feed" class="tab-pane">
 													<div class="row">
